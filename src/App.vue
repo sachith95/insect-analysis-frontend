@@ -11,84 +11,110 @@
                 </v-btn>
               </template>
               <form @submit="saveDevice">
-              <v-card>
-                <v-card-title>
-                  <span class="headline">Device Details</span>
-                </v-card-title>
-                <v-card-text>
-                  <v-container>
-                    <v-row>
-                      <v-col cols="12" sm="6" md="4">
-                        <v-text-field label="Device ID"  v-model.trim="deviceID"  required></v-text-field>
-                      </v-col>
-                      <v-col cols="12" sm="6" md="4">
-                        <v-text-field label="Owner Name" hint="Full name of device owner" v-model.trim="OwnerName"></v-text-field>
-                      </v-col>
-                      <v-col cols="12" sm="6" md="4">
-                        <v-text-field
-                          label="NIC"
-                          hint="National ID number for authenticate"
-                          persistent-hint
-                          required
-                          v-model.trim="NIC"
-                        ></v-text-field>
-                      </v-col>
-                      <v-col cols="12">
-                        <v-text-field label="Address" required v-model.trim="addr"></v-text-field>
-                      </v-col>
-                      <v-col cols="12">
-                        <v-text-field label="Contact No"  required v-model.trim="contact"></v-text-field>
-                      </v-col>
-                      <v-col cols="12" sm="6">
-                        <v-select
-                          :items="['Mobile', 'Sensor', 'Others']"
-                          label="Device Type"
-                          v-model.trim="type"
-                          required
-                        ></v-select>
-                      </v-col>
-                      <v-col cols="12" sm="6">
-                        <v-autocomplete
-                          :items="[
-                          'Ampara',
-                          'Anuradhapura',
-                          'Badulla',
-                          'Batticaloa',
-                          'Colombo',
-                          'Galle',
-                          'Gampaha',
-                          'Hambantota',
-                          'Jaffna',
-                          'Kalutara',
-                          'Kandy',
-                          'Kegalle',
-                          'Kilinochchi',
-                          'Kurunegala',
-                          'Mannar',
-                          'Matale',
-                          'Matara',
-                          'Monaragala',
-                          'Mullaitivu',
-                          'Nuwara Eliya',
-                          'Polonnaruwa',
-                          'Puttalam',
-                          'Ratnapura',
-                          'Trincomalee',
-                          'Vavuniya'
-                          ]"
-                          label="District"
-                        ></v-autocomplete>
-                      </v-col>
-                    </v-row>
-                  </v-container>
-                  <small>*indicates required field</small>
-                </v-card-text>
-                <v-card-actions>
-                  <v-spacer></v-spacer>
-                  <v-btn color="blue darken-1" text @click="Devicedialog = false">Close</v-btn>
-                  <v-btn color="blue darken-1" text @click="Devicedialog = false"  type="submit"  value="Submit">Save</v-btn>
-                </v-card-actions>
-              </v-card>
+                <v-card>
+                  <v-card-title>
+                    <span class="headline">Device Details</span>
+                  </v-card-title>
+                  <v-card-text>
+                    <v-container>
+                      <v-row>
+                        <v-col cols="12" sm="6" md="4">
+                          <v-text-field
+                            label="Device ID"
+                            v-model.trim="deviceID"
+                            required
+                          ></v-text-field>
+                        </v-col>
+                        <v-col cols="12" sm="6" md="4">
+                          <v-text-field
+                            label="Owner Name"
+                            hint="Full name of device owner"
+                            v-model.trim="ownerName"
+                          ></v-text-field>
+                        </v-col>
+                        <v-col cols="12" sm="6" md="4">
+                          <v-text-field
+                            label="NIC"
+                            hint="National ID number for authenticate"
+                            persistent-hint
+                            required
+                            v-model.trim="nic"
+                          ></v-text-field>
+                        </v-col>
+                        <v-col cols="12">
+                          <v-text-field
+                            label="Address"
+                            v-model.trim="addr"
+                          ></v-text-field>
+                        </v-col>
+                        <v-col cols="12">
+                          <v-text-field
+                            label="Contact No"
+                            v-model.trim="contact"
+                          ></v-text-field>
+                        </v-col>
+                        <v-col cols="12" sm="6">
+                          <v-select
+                            :items="['Mobile', 'Sensor', 'Others']"
+                            label="Device Type"
+                            v-model.trim="type"
+                          ></v-select>
+                        </v-col>
+                        <v-col cols="12" sm="6">
+                          <v-autocomplete
+                            :items="[
+                              'Ampara',
+                              'Anuradhapura',
+                              'Badulla',
+                              'Batticaloa',
+                              'Colombo',
+                              'Galle',
+                              'Gampaha',
+                              'Hambantota',
+                              'Jaffna',
+                              'Kalutara',
+                              'Kandy',
+                              'Kegalle',
+                              'Kilinochchi',
+                              'Kurunegala',
+                              'Mannar',
+                              'Matale',
+                              'Matara',
+                              'Monaragala',
+                              'Mullaitivu',
+                              'Nuwara Eliya',
+                              'Polonnaruwa',
+                              'Puttalam',
+                              'Ratnapura',
+                              'Trincomalee',
+                              'Vavuniya',
+                            ]"
+                            label="District"
+                            v-model.trim="district"
+                          ></v-autocomplete>
+                        </v-col>
+                      </v-row>
+                    </v-container>
+                    <small>*indicates required field</small>
+                  </v-card-text>
+                  <v-card-actions>
+                    <v-spacer></v-spacer>
+                    <v-btn
+                      color="blue darken-1"
+                      text
+                      @click="Devicedialog = false"
+                      >Close</v-btn
+                    >
+                    <v-btn
+                      color="blue darken-1"
+                      text
+                      @click="Devicedialog = false"
+                      type="submit"
+                      value="Submit"
+                      >Save</v-btn
+                    >
+                  </v-card-actions>
+                </v-card>
               </form>
             </v-dialog>
           </v-list-item-content>
@@ -101,45 +127,85 @@
                   <v-icon class="mr-2">mdi-bee</v-icon>Add Pesticide Detials
                 </v-btn>
               </template>
-              <v-card>
-                <v-card-title>
-                  <span class="headline">Pesticide Detials</span>
-                </v-card-title>
-                <v-card-text>
-                  <v-container>
-                    <v-row>
-                      <v-col cols="12" sm="6" md="4">
-                        <v-text-field label="Pest ID" required></v-text-field>
-                      </v-col>
-                      <v-col cols="12" sm="6" md="8">
-                        <v-text-field label="Pesticide Name" hint="Name of the pesticide"></v-text-field>
-                      </v-col>
-                      <v-col cols="12">
-                        <v-text-field label="Charactestics of infection" required></v-text-field>
-                      </v-col>
-                      <v-col cols="12">
-                        <v-text-field label="Effective Insects" required></v-text-field>
-                      </v-col>
-                      <v-col cols="12">
-                        <v-text-field label="Other " type="Details" required></v-text-field>
-                      </v-col>
-                      <v-col cols="12" sm="6">
-                        <v-select
-                          :items="['Active', 'Inactive']"
-                          label="Status of Pesticide"
-                          required
-                        ></v-select>
-                      </v-col>
-                    </v-row>
-                  </v-container>
-                  <small>*indicates required field</small>
-                </v-card-text>
-                <v-card-actions>
-                  <v-spacer></v-spacer>
-                  <v-btn color="blue darken-1" text @click="Insectdialog = false">Close</v-btn>
-                  <v-btn color="blue darken-1" text @click="Insectdialog = false">Save</v-btn>
-                </v-card-actions>
-              </v-card>
+              <form @submit="savePesticide">
+                <v-card>
+                  <v-card-title>
+                    <span class="headline">Pesticide Detials</span>
+                  </v-card-title>
+                  <v-card-text>
+                    <v-container>
+                      <v-row>
+                        <v-col cols="12" sm="6" md="4">
+                          <v-text-field
+                            label="Pest ID"
+                            required
+                            v-model.trim="pestId"
+                          ></v-text-field>
+                        </v-col>
+                        <v-col cols="12" sm="6" md="8">
+                          <v-text-field
+                            label="Pesticide Name"
+                            hint="Name of the pesticide"
+                            v-model.trim="pestName"
+                          ></v-text-field>
+                        </v-col>
+                        <v-col cols="12">
+                          <v-text-field
+                            label="Charactestics of infection"
+                            required
+                            v-model.trim="pestDesc"
+                          ></v-text-field>
+                        </v-col>
+                        <v-col cols="12">
+                          <v-text-field
+                            label="Effective Insects"
+                            required
+                            v-model.trim="effectType"
+                          ></v-text-field>
+                        </v-col>
+                        <v-col cols="12">
+                          <v-text-field
+                            label="Other "
+                            type="Details"
+                            required
+                            v-model.trim="other"
+                          ></v-text-field>
+                        </v-col>
+                        <v-col cols="12" sm="6">
+                          <v-select
+                            :items="['Active', 'Inactive']"
+                            label="Status of Pesticide"
+                            required
+                            v-model.trim="status"
+                          ></v-select>
+                        </v-col>
+                      </v-row>
+                    </v-container>
+                    <small>{{ errMSg }}</small>
+                  </v-card-text>
+                  <v-card-actions>
+                    <v-spacer></v-spacer>
+                    <v-btn
+                      color="blue darken-1"
+                      text
+                      @click="Insectdialog = false"
+                      >Close</v-btn
+                    >
+                    <v-btn
+                      color="blue darken-1"
+                      text
+                      type="submit"
+                      value="submit"
+                      >Save</v-btn
+                    >
+                    <v-progress-circular
+                      :indeterminate="isPestdetialsSaveStatus === 'pending'"
+                      color="primary"
+                    >
+                    </v-progress-circular>
+                  </v-card-actions>
+                </v-card>
+              </form>
             </v-dialog>
           </v-list-item-content>
         </v-list-item>
@@ -152,8 +218,15 @@
               transition="dialog-bottom-transition"
             >
               <template v-slot:activator="{ on, attrs }">
-                <v-btn text v-bind="attrs" v-on="on" small>
-                  <v-icon class="mr-2">mdi-android-auto</v-icon>View Registed Pesticides
+                <v-btn
+                  text
+                  v-bind="attrs"
+                  v-on="on"
+                  small
+                  v-on:click="ViewPesticide"
+                >
+                  <v-icon class="mr-2">mdi-android-auto</v-icon>View Registed
+                  Pesticides
                 </v-btn>
               </template>
               <v-card>
@@ -166,15 +239,20 @@
                 </v-toolbar>
                 <v-data-table
                   :headers="pestHeaders"
-                  :items="[]"
+                  :items="this.$store.state.pestDetails"
                   :items-per-page="5"
                   class="elevation-1"
-                ></v-data-table>
+                  v-if="!this.$store.state.ispestDetailsLoading"
+                >
+                  <template v-if="this.$store.state.ispestDetailsLoading">
+                    <spinner></spinner>
+                  </template>
+                </v-data-table>
               </v-card>
             </v-dialog>
           </v-list-item-content>
         </v-list-item>
-                <v-list-item link>
+        <v-list-item link>
           <v-list-item-content>
             <v-dialog
               v-model="ViewDevicedialog"
@@ -183,8 +261,15 @@
               transition="dialog-bottom-transition"
             >
               <template v-slot:activator="{ on, attrs }">
-                <v-btn text v-bind="attrs" v-on="on" small>
-                  <v-icon class="mr-2">mdi-tablet-cellphone</v-icon>View Registed Devices
+                <v-btn
+                  text
+                  v-bind="attrs"
+                  v-on="on"
+                  small
+                  v-on:click="ViewDevices"
+                >
+                  <v-icon class="mr-2">mdi-tablet-cellphone</v-icon>View
+                  Registed Devices
                 </v-btn>
               </template>
               <v-card>
@@ -197,10 +282,15 @@
                 </v-toolbar>
                 <v-data-table
                   :headers="deviceHeaders"
-                  :items="[]"
+                  :items="this.$store.state.deviceDetails"
                   :items-per-page="5"
                   class="elevation-1"
-                ></v-data-table>
+                  v-if="!this.$store.state.isdeviceDetailsLoading"
+                >
+                  <template v-if="this.$store.state.isdeviceDetailsLoading">
+                    <spinner></spinner>
+                  </template>
+                </v-data-table>
               </v-card>
             </v-dialog>
           </v-list-item-content>
@@ -219,12 +309,12 @@
           <div class="column">
             <div class="card">
               <h2 class="ml-2 v"></h2>
-              <v-row style="justify-content: space-evenly;">
+              <v-row style="justify-content: space-evenly">
                 <img src="./assets/insect.svg" width="50px" height="50px" />
                 <h2 class="ml-2 v">
                   Insects Sound Analysed
                   <br />
-                  <b>446</b>
+                  <b> {{ this.$store.state.anlyDetails.count }}</b>
                 </h2>
               </v-row>
             </div>
@@ -232,7 +322,7 @@
 
           <div class="column">
             <div class="card">
-              <v-row style="justify-content: space-evenly;">
+              <v-row style="justify-content: space-evenly">
                 <img src="./assets/plug.svg" width="50px" height="50px" />
                 <h2 class="ml-2 v">
                   Connected Devices
@@ -245,12 +335,12 @@
 
           <div class="column">
             <div class="card">
-              <v-row style="justify-content: space-evenly;">
+              <v-row style="justify-content: space-evenly">
                 <img src="./assets/bee.svg" width="50px" height="50px" />
                 <h2 class="ml-2 v">
                   Benifical Insects Count
                   <br />
-                  <b>200</b>
+                  <b> {{ this.$store.state.anlyDetails.insect }}</b>
                 </h2>
               </v-row>
             </div>
@@ -258,12 +348,12 @@
 
           <div class="column">
             <div class="card">
-              <v-row style="justify-content: space-evenly;">
+              <v-row style="justify-content: space-evenly">
                 <img src="./assets/pest.svg" width="50px" height="50px" />
                 <h2 class="ml-2 v">
                   Pest Insects Count
                   <br />
-                  <b>100</b>
+                  <b> {{ this.$store.state.anlyDetails.pest }}</b>
                 </h2>
               </v-row>
             </div>
@@ -300,7 +390,9 @@ import GeoHeatMap from "@/components/GeoHeatMap";
 import HelloWorld from "@/components/HelloWorld";
 import PestPie from "@/components/PestPie";
 import PlantPie from "@/components/PlantPie";
-import * as actionTypes from './store/action-types'
+import * as actionTypes from "./store/action-types";
+import { mapState } from "vuex";
+
 export default {
   name: "App",
   components: {
@@ -313,49 +405,104 @@ export default {
     source: String,
   },
   data: () => ({
+    pestId: null,
+    pestDesc: null,
+    pestName: null,
+    effectType: null,
+    other: null,
+    status: null,
     drawer: null,
+    deviceID: null,
+    ownerName: null,
+    nic: null,
+    addr: null,
+    contact: null,
+    type: null,
+    district: null,
     Devicedialog: false,
     Insectdialog: false,
     ViewPestdialog: false,
-    ViewDevicedialog : false,
+    ViewDevicedialog: false,
+    errMSg: "",
     pestHeaders: [
       {
         text: "Pesticide ID",
         align: "start",
         sortable: false,
-        value: "id",
+        value: "PestID",
       },
-      { text: "Pesticide Name", value: "name" },
-      { text: "Charactersics", value: "fat" },
-      { text: "Effective Insects", value: "carbs" },
-      { text: "Status", value: "protein" },
+      { text: "Pesticide Name", value: "PestName" },
+      { text: "Charactersics", value: "Description" },
+      { text: "Effective Insects", value: "EffectiveInsectType" },
+      { text: "Status", value: "Status" },
     ],
     deviceHeaders: [
       {
         text: "Device ID",
         align: "start",
         sortable: false,
-        value: "id",
+        value: "DeviceID",
       },
-      { text: "Owner Name", value: "name" },
-      { text: "District", value: "fat" },
-      { text: "Contact No", value: "cardbs" },
-      { text: "Device Type", value: "carbs" },
-      { text: "Status", value: "protein" },
+      { text: "Owner Name", value: "OwnerName" },
+      { text: "District", value: "District" },
+      { text: "Contact No", value: "ContactNo" },
+      { text: "Device Type", value: "DeviceType" },
+      { text: "NIC", value: "NIC" },
     ],
- }),
+  }),
+  beforeMount() {
+    this.getAnly();
+  },
+  computed: mapState(["isPestdetialsSaveStatus"]),
+  watch: {
+    isPestdetialsSaveStatus(newValue, oldValue) {
+      console.log(`Updating from ${oldValue} to ${newValue}`);
+
+      // Do whatever makes sense now
+      if (newValue === "success") {
+        this.Insectdialog = false;
+      } else if (newValue === "failed") {
+        this.errMSg = "Insect data saving failed";
+        setTimeout(() => {
+          this.Insectdialog = false;
+        }, 2000);
+      }
+    },
+  },
   methods: {
     saveDevice(e) {
-console.log(this.deviceID);
       this.$store.dispatch(actionTypes.SAVE_DEVICE, {
-        deviceDetials: { 
-          deviceID: this.deviceID
-
-        },
-      })
-            e.preventDefault();
+        DeviceID: this.deviceID,
+        OwnerName: this.ownerName,
+        NIC: this.nic,
+        Address: this.addr,
+        ContactNo: this.contact,
+        DeviceType: this.type,
+        District: this.district,
+      });
+      e.preventDefault();
     },
-  }
+    savePesticide(e) {
+      this.$store.dispatch(actionTypes.SAVE_PEST, {
+        PestID: this.pestId,
+        PestName: this.pestName,
+        Description: this.pestDesc,
+        EffectInsectType: this.effectType,
+        Other: this.other,
+        Status: this.status,
+      });
+      e.preventDefault();
+    },
+    ViewPesticide() {
+      this.$store.dispatch(actionTypes.VIEW_PEST);
+    },
+    ViewDevices() {
+      this.$store.dispatch(actionTypes.VIEW_DEVICE);
+    },
+    getAnly() {
+      this.$store.dispatch(actionTypes.GET_ANLY);
+    },
+  },
 };
 </script>
 
@@ -412,7 +559,7 @@ b {
   white-space: -o-pre-wrap; /* Opera 7 */
   word-wrap: break-word; /* IE */
 }
-.v-btn{
+.v-btn {
   padding-left: 0 !important;
 }
 .v-btn__content {

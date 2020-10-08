@@ -36,7 +36,7 @@ export default {
               { name: "Beatales", value: 12343 },
               { name: "Cricket", value: 12343 },
               { name: "Hoppers", value: 1233 },
-            { name: "Unknown", value: 3456 }
+              { name: "Unknown", value: 3456 }
             ],
             emphasis: {
               itemStyle: {
