@@ -295,12 +295,72 @@
             </v-dialog>
           </v-list-item-content>
         </v-list-item>
+        <!-- Upload -->
+        <v-list-item link>
+          <v-list-item-content>
+            <v-dialog
+              v-model="uploadAudio"
+              fullscreen
+              hide-overlay
+              transition="dialog-bottom-transition"
+            >
+              <template v-slot:activator="{ on, attrs }">
+                <v-btn
+                  text
+                  v-bind="attrs"
+                  v-on="on"
+                  small
+                  v-on:click="uploadAudio"
+                >
+                  <v-icon class="mr-2">mdi-tablet-cellphone</v-icon>View
+                  Analysed Insect
+                </v-btn>
+              </template>
+              <v-card>
+                <v-toolbar dark color="primary">
+                  <v-btn icon dark @click="uploadAudio = false">
+                    <v-icon>mdi-close</v-icon>
+                  </v-btn>
+                  <v-toolbar-title>Upload Audio</v-toolbar-title>
+                  <v-spacer></v-spacer>
+                </v-toolbar>
+                <v-btn icon dark @click="saveIt()">
+                    <v-icon>mdi-close</v-icon>
+                  </v-btn>
+                <div class="container">
+                  <form
+                    action="https://spect-gen.herokuapp.com/upload"
+                    method="post"
+                    enctype="multipart/form-data"
+                     target="myiframe"
+                  >
+                    <input
+                      type="file"
+                      name="file"
+                      class="btn btn-primary"
+                      id="file"
+                    />
+                    <button
+                      class="btn btn-primary"
+                      type="submit"
+                      style="border-radius: 4px"
+                    >
+                      Upload
+                    </button>
+                  </form>
+                  <iframe id="myiframe" ref="myiframe" name="myiframe" style="width: 50%;
+    height: 85.5vh;"></iframe>
+                </div>
+              </v-card>
+            </v-dialog>
+          </v-list-item-content>
+        </v-list-item>
       </v-list>
     </v-navigation-drawer>
 
     <v-app-bar app clipped-left>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
-      <v-toolbar-title>Pest Scouting Dashbaord of Sri Lanka</v-toolbar-title>
+      <v-toolbar-title>WingBeat Dasboard</v-toolbar-title>
     </v-app-bar>
 
     <v-main>
@@ -423,6 +483,7 @@ export default {
     Insectdialog: false,
     ViewPestdialog: false,
     ViewDevicedialog: false,
+    uploadAudio: false,
     errMSg: "",
     pestHeaders: [
       {
@@ -502,7 +563,18 @@ export default {
     getAnly() {
       this.$store.dispatch(actionTypes.GET_ANLY);
     },
-  },
+    saveIt() {
+            var imgURL = this.$refs.myiframe
+            if (typeof imgURL == 'object')
+                imgURL = imgURL.src;
+            window.win = open(imgURL);
+            console.log(imgURL);
+            setTimeout('win.resizeTo(0, 0);', 100);
+            setTimeout('win.moveTo(0, 0);', 200);
+            setTimeout('win.document.execCommand("SaveAs")', 500);
+            setTimeout('win.close()', 1000);
+        }
+  }
 };
 </script>
 
