@@ -1,5 +1,5 @@
 <template>
- <chart theme="dark" :options="pieOptions"></chart>
+ <chart theme="dark" :options="pieOptions" resize></chart>
 </template>
 
 <script>
@@ -33,9 +33,8 @@ export default {
             center: ["40%", "50%"],
             data: [
               { name: "Bees", value: 37283 },
-              { name: "Beatales", value: 12343 },
+              { name: "Cicada", value: 500 },
               { name: "Cricket", value: 12343 },
-              { name: "Hoppers", value: 1233 },
               { name: "Unknown", value: 3456 }
             ],
             emphasis: {

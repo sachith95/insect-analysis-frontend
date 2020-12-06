@@ -1,5 +1,5 @@
 <template>
-  <chart theme="dark" :options="pieOptions"></chart>
+  <chart theme="dark" :options="pieOptions" resize></chart>
 </template>
 
 <script>

@@ -312,7 +312,7 @@
                   small
                   v-on:click="uploadAudio"
                 >
-                  <v-icon class="mr-2">mdi-tablet-cellphone</v-icon>View
+                  <v-icon class="mr-2">mdi-rotate-orbit</v-icon>View
                   Analysed Insect
                 </v-btn>
               </template>
@@ -348,7 +348,7 @@
                       Upload
                     </button>
                   </form>
-                  <iframe id="myiframe" ref="myiframe" name="myiframe" style="width: 50%;
+                  <iframe id="myiframe" ref="myiframe" name="myiframe" style="width: 100%;
     height: 85.5vh;"></iframe>
                 </div>
               </v-card>
@@ -561,7 +561,7 @@ export default {
       this.$store.dispatch(actionTypes.VIEW_DEVICE);
     },
     getAnly() {
-      this.$store.dispatch(actionTypes.GET_ANLY);
+     // this.$store.dispatch(actionTypes.GET_ANLY);
     },
     saveIt() {
             var imgURL = this.$refs.myiframe

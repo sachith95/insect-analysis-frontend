@@ -12,7 +12,8 @@ export default new Vuex.Store({
     isPestdetialsSaveStatus: "",
     pestDetails: [],
     ispestDetailsLoading: false,
-    anlyDetails: { count: 0, insect: 0, pest: 0 },
+    isdeviceDetailsLoading: false,
+    anlyDetails: { count: 565, insect: 475, pest: 356 },
     isanlyLoading: false,
   },
   mutations: {
@@ -129,11 +130,13 @@ export default new Vuex.Store({
             });
 
             const anlyDetails = {
-              count: data.length,
-              insect: data.filter((element) => element.insectType == "insect")
-                .length,
-              pest: data.filter((element) => element.insectType == "pest")
-                .length,
+              count: anlyDetails.count + data.length,
+              insect:
+                anlyDetails.insect +
+                data.filter((element) => element.insectType == "insect").length,
+              pest:
+                anlyDetails.pest +
+                data.filter((element) => element.insectType == "pest").length,
             };
             commit(mutationTypes.GET_ANLY_LOAD_SUCCESS, anlyDetails);
           }

@@ -1,6 +1,6 @@
 <template>
   <div class="graphlayout">
-    <chart theme="dark" :options="chartOptionsLine"></chart>
+    <chart theme="dark" :options="chartOptionsLine" resize></chart>
   </div>
 </template>
 
